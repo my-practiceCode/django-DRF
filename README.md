@@ -1,1 +1,12 @@
 # django-DRF
+
+| **Mixins**                                                  | **Generic View Equivalent**    | **ViewSet Equivalent**                                  | **HTTP Methods**                        | **Purpose / Description**                        |
+| ----------------------------------------------------------- | ------------------------------ | ------------------------------------------------------- | --------------------------------------- | ------------------------------------------------ |
+| `CreateModelMixin`                                          | `CreateAPIView`                | `create()` in `ModelViewSet`                            | `POST`                                  | Create a new record in the database.             |
+| `ListModelMixin`                                            | `ListAPIView`                  | `list()` in `ModelViewSet`                              | `GET`                                   | Retrieve a list of all objects.                  |
+| `RetrieveModelMixin`                                        | `RetrieveAPIView`              | `retrieve()` in `ModelViewSet`                          | `GET (by ID)`                           | Retrieve a single object by ID.                  |
+| `UpdateModelMixin`                                          | `UpdateAPIView`                | `update()` / `partial_update()` in `ModelViewSet`       | `PUT`, `PATCH`                          | Update an existing object (full or partial).     |
+| `DestroyModelMixin`                                         | `DestroyAPIView`               | `destroy()` in `ModelViewSet`                           | `DELETE`                                | Delete an existing object.                       |
+| `ListModelMixin + CreateModelMixin`                         | `ListCreateAPIView`            | `list()` + `create()` in `ModelViewSet`                 | `GET`, `POST`                           | List all objects or create a new one.            |
+| `RetrieveModelMixin + UpdateModelMixin + DestroyModelMixin` | `RetrieveUpdateDestroyAPIView` | `retrieve()`, `update()`, `destroy()` in `ModelViewSet` | `GET`, `PUT`, `PATCH`, `DELETE`         | Retrieve, update, or delete a specific object.   |
+| *(All Mixins Combined)*                                     | *(All Generic Views Combined)* | **`ModelViewSet`**                                      | `GET`, `POST`, `PUT`, `PATCH`, `DELETE` | Provides full CRUD operations in a single class. |
